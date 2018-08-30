@@ -1,0 +1,17 @@
+<div>
+    <p>
+        <h3>{{category.page_title}}</h3>
+        {{category.page_description}}
+    </p>
+</div>
+{{#each category.categories}}
+ <div class="card mb-3">
+   <img class="card-img-top" src="{{this.image}}" alt="">
+   <div class="card-body">
+     <h3 class="card-title">{{this.name}}</h3>
+     <p class="card-text">{{this.page_description}}</p>
+     <a href = "/{{this.parent_category_id}}/{{this.id}}" role="button" class="add-to-cart btn btn-light" style= "padding: 5px 5px">View Products</a>
+   </div>
+ </div>
+
+{{/each}}

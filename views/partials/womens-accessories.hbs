@@ -1,0 +1,29 @@
+<br>
+{{#each products }}
+    <div class="row">
+        {{#each this }}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    {{#each this.image_groups}}
+                        {{#ifCond this.view_type "medium" }}
+                        {{#if this.variation_value}}
+                        
+                        {{else}}
+                        <img src="/{{ this.images.0.link }}" alt="..." class="img-responsive">
+                        {{/if}}
+                        {{/ifCond}}
+                    {{/each}}
+                    <div class="caption">
+                        <h3>{{ this.name }}</h3>
+                        <p class="description">{{ this.short_description }}</p>
+                        <div class="clearfix">
+                            <div class="price pull-left">${{ this.price }}</div>
+                            <a href="/womens/womens-accessories/{{this.primary_category_id}}/{{this.id}}" class="btn btn-light pull-right" style="border-color:#ddd" role="button">Details</a>
+                            <a href="/add-to-cart/{{this.id}}" class="btn btn-light pull-right" style="border-color:#ddd" role="button">Add to shopping Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/each}}

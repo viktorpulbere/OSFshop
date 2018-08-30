@@ -1,0 +1,17 @@
+{{#if success}}
+<div class="alert alert-success" role="alert">
+  Successfully bought product(s)!
+</div>
+{{/if}}
+{{#each categories}}
+
+<div class="card mb-3">
+  <img class="card-img-top" style='max-width: 100%' src="{{this.id}}.jpg" alt="{{this.page_description}}">
+  <div class="card-body">
+    <h3 class="card-title">{{this.name}}</h3>
+    <p class="card-text">{{this.page_description}}</p>
+    <a href = "/{{this.id}}" role="button" class="add-to-cart btn btn-light" style= "padding: 5px 5px">View Products</a>
+    
+  </div>
+</div>
+{{/each}}

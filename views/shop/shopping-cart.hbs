@@ -1,0 +1,97 @@
+{{# if this.products }}
+<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Product</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+                    {{#each products}}
+					<tbody>
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+                                     {{#each this.item.image_groups}}
+                                        {{#ifCond this.view_type "small" }}
+                                             {{#if this.variation_value}}
+                        
+                                             {{else}}
+                                                <div class="col-sm-2 hidden-xs"><img src="/{{ this.images.0.link }}" alt="..." class="img-responsive"/></div>
+                                             {{/if}}
+                                        {{/ifCond}}
+                                     {{/each}}
+									
+									<div class="col-sm-10">
+										<h4 class="nomargin">{{this.item.name}}</h4>
+										<p>{{this.item.short_description}}</p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">${{this.item.price}}</td>
+							<td data-th="Subtotal" class=" actions">
+                                <a href="/increment/{{this.item.id}}"><i class="fas fa-arrow-up"></i></a>
+                                {{this.qty}}
+                                <a href="/reduce/{{this.item.id}}"><i class="fas fa-arrow-down"></i></a>
+                                </td>
+							<td data-th="Subtotal" class="text-center">${{this.price}}</td>
+							<td class="actions" data-th="">
+								<a href="/remove/{{this.item.id}}"><i class="fas fa-trash"></i></a>								
+							</td>
+						</tr>
+					</tbody>
+                    {{/each}}
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong> {{totalPrice}} </strong></td>
+						</tr>
+						<tr>
+							<td><a href="/" class="btn btn-light" style="border-color:#ddd"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong>Total: ${{totalPrice}}</strong></td>
+							<td><a href="/checkout" class="btn btn-light btn-block" style="border-color:#ddd">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
+{{else }}
+    <table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Product</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-10">
+										<h4 class="nomargin">No items in your shopping cart!</h4>
+										<p></p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">$0</td>
+							<td data-th="Subtotal" class="text-center">0</td>
+							<td data-th="Subtotal" class="text-center">$0</td>
+							
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong> 0 </strong></td>
+						</tr>
+						<tr>
+							<td><a href="/" class="btn btn-light" style="border-color:#ddd"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong>Total: $0 </strong></td>
+							<td><a href="/checkout" class="btn btn-light btn-block" style="border-color:#ddd">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
+{{/if}}

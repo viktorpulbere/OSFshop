@@ -10,21 +10,20 @@
                                      {{#if this.variation_value}}
                         
                                      {{else}}
-                                         <img src="/{{ this.images.0.link }}" style="max-width:80%" />
+                                        <img src="/{{ this.images.0.link }}"/>
                                       {{/if}}
                                  {{/ifCond}}
                             {{/each}}
                         </div>
                         
-                        <br></br>
                         <ul class="preview-thumbnail nav nav-tabs" >
                             {{#each productDetails.image_groups}}
-                            {{#ifCond this.view_type "small" }}
+                            {{#ifCond this.view_type "large" }}
                             {{#if this.variation_value}}
                         
                           {{else}}
                                {{#each this.images}}
-                                    <li><a data-target="#{{this.title}}" data-toggle="tab"><img src="/{{this.link}}" /></a></li>
+                                    <li><a data-target="{{baseUrl}}" data-toggle="tab"><img src="/{{this.link}}" /></a></li>
                                {{/each}} 
                             {{/if}}
                             {{/ifCond}}
@@ -51,7 +50,7 @@
                             {{#ifCond this.id "color" }}
                             <h5 class="colors">colors:
                                 {{#each this.values}}
-                                    <span class="badge">{{this.value}}</span>
+                                    <span class="badge" style="background-color:{{this.name}}; text-shadow: 0 0 3px black;">{{this.name}}</span>
                                 {{/each}}
                                 </h5>
                             {{/ifCond}}

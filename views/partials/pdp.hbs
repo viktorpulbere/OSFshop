@@ -23,7 +23,7 @@
                         
                           {{else}}
                                {{#each this.images}}
-                                    <li><a data-target="{{baseUrl}}" data-toggle="tab"><img src="/{{this.link}}" /></a></li>
+                                    <li><a data-target="" data-toggle="tab"><img src="/{{this.link}}" /></a></li>
                                {{/each}} 
                             {{/if}}
                             {{/ifCond}}
@@ -33,6 +33,9 @@
 					<div class="details col-md-6">
 						<h3 class="product-title">{{productDetails.name}}</h3>
 						<p class="product-description">{{productDetails.long_description}}</p>
+                        {{#if productDetails.price_max}}
+                        <h4 class="price" >was: <span style="text-decoration: line-through">${{productDetails.price_max}}</span></h4>
+                        {{/if}}
 						<h4 class="price">current price: <span>${{productDetails.price}}</span></h4>
                         
                         {{#each productDetails.variation_attributes}}

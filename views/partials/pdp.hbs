@@ -4,16 +4,18 @@
 					<div class="preview col-md-6">
 						
 						<div class="preview-pic tab-content ">
+                            
                             {{#each productDetails.image_groups}}
-                        {{#ifCond this.view_type "large" }}
-                        {{#if this.variation_value}}
+                                 {{#ifCond this.view_type "large" }}
+                                     {{#if this.variation_value}}
                         
-                        {{else}}
-                            <div class="tab-pane active" id="{{this.images.0.title}}" style="min-height: 100%; max-width: 100%; position: absolute;left: 20%; bottom: 0; "><img src="/{{ this.images.0.link }}" /></div>
-                        {{/if}}
-                        {{/ifCond}}
-                    {{/each}}
+                                     {{else}}
+                                         <img src="/{{ this.images.0.link }}" style="max-width:80%" />
+                                      {{/if}}
+                                 {{/ifCond}}
+                            {{/each}}
                         </div>
+                        
                         <br></br>
                         <ul class="preview-thumbnail nav nav-tabs" >
                             {{#each productDetails.image_groups}}
